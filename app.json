@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/tool/tool",
+    "pages/rank/rank",
+    "pages/record/record", 
+    "pages/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#050412",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white",
+    "backgroundColor":"#050412"
+  },
+  "tabBar": {
+    "color": "#FFF",
+    "selectedColor": "#00dbff",
+    "backgroundColor": "#1b1d24",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "测速",
+        "iconPath":"img/nav_icon0_0.png",
+        "selectedIconPath": "img/nav_icon0_1.png"
+      },
+      {
+        "pagePath": "pages/record/record",
+        "text": "记录",
+        "iconPath": "img/nav_icon1_0.png",
+        "selectedIconPath": "img/nav_icon1_1.png"
+      },
+      {
+        "pagePath": "pages/tool/tool",
+        "text": "测速知识",
+        "iconPath": "img/nav_icon2_0.png",
+        "selectedIconPath": "img/nav_icon2_1.png"
+      },
+      {
+        "pagePath": "pages/rank/rank",
+        "text": "测速排行榜",
+        "iconPath": "img/nav_icon3_0.png",
+        "selectedIconPath": "img/nav_icon3_1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap38.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "networkTimeout": {
+    "request": 10000
+  }
+}

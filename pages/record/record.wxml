@@ -1,0 +1,30 @@
+ 
+ 		<view class="head">
+			<view>类型</view>
+			<view>时间</view>
+			<view class="mbps">下载/Mbps</view>
+			<view class="mbps">上传/Mbps</view>
+			<view ></view>
+		</view>
+		<scroll-view class="list" style="height:{{height}}px" scroll-y="true">
+			<view class="item" wx:for="{{array}}" data-index="{{index}}"bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" bindlongtap="bingLongTap" bindtap="bindTap" style='{{key==index?"background-color:rgba(255,255,255,.1);":""}}' >
+				<view class="record">
+          <view class="text"  > 
+            <image src="/img/wifi.png"  class="img"   wx:if="{{item.type=='Wi-Fi'}}"></image>
+            <image src="/img/4g.png"  class="img" wx:else></image>
+          </view>
+					<view class="text" style="color:#9b9aa1;font-size:24rpx;line-height:29rpx;">
+						<view style="margin-top:22rpx;">{{item.date}}
+							{{item.time}}
+						</view>
+						<!-- <view> </view> -->
+					</view>
+			
+					<view class="text" style="color:#fff">{{item.down}}</view>
+					<view class="text" style="color:#fff">{{item.up}}</view>
+					<view class="text" style="display:flex;align-items:center;justify-content:center">	<image src="/img/arrow.png"   class="arrow"></image></view>
+				</view>
+			
+			</view>
+		</scroll-view> 
+ 

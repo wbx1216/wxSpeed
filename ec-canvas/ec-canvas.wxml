@@ -1,0 +1,4 @@
+<!-- 新的：接口对其了H5 -->
+<canvas wx:if="{{isUseNewCanvas}}" type="2d" class="ec-canvas" canvas-id="{{ canvasId }}" bindinit="init"   ></canvas>
+<!-- 旧的 -->
+ 

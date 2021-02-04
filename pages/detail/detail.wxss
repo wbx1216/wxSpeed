@@ -1,0 +1,123 @@
+page {
+  color: #fff;
+}
+
+.head {
+  font-size: 35rpx;
+  display: flex;
+  align-items: center;
+  line-height: 60rpx;
+}
+
+.head image {
+  width: 20rpx;
+  display: block;
+  margin-right: 12.5rpx;
+  height: 32rpx;
+}
+
+.location {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22rpx;
+  margin: 30rpx auto;
+}
+
+.location	.item {
+  display: flex;
+  align-items: center;
+}
+
+.location	.item	image {
+  display: block;
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.location	.item	.text {
+  font-size: 18rpx;
+  color: #fff;
+  margin-left: 10rpx;
+}
+
+.block {
+  width: 100%;
+  background: rgba(239,247,255,.05);
+  border-radius: 5px;
+  padding: 60rpx 0px;
+  margin-bottom: 50rpx; 
+}
+
+.block   .item {
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  justify-content: space-between;
+  text-align: center;
+  position: relative;
+}
+
+.block	.item	.line {
+  background: rgba(255, 255, 255, 0.1);
+  width: 1px;
+  height: 60rpx;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 30%;
+  z-index: 999;
+}
+.list{
+  margin-top: 50rpx; 
+  background: rgba(239,247,255,.05);
+  border-radius: 5px;
+  padding:20rpx 0px;
+}
+.list .item {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-size: 30rpx;
+			line-height: 105rpx;
+			border-top: 1px dashed rgba(255, 255, 255, .1); 
+      margin: 0px 20rpx; 
+}
+.list .item:first-child{
+  border-top:none;
+}
+.icon {
+				width: 40rpx;
+				display: block;
+				margin-right: 10px; 
+			}
+      .loading {
+				width: 270rpx;
+				height:10rpx;
+				background: rgba(255, 255, 255, .1);
+				border-radius: 20px;
+				position: relative;
+				overflow: hidden;
+      }
+				.inLoading {
+					position: absolute;
+					width: 0px;
+					height: 100%;
+					border-radius: 20px;
+					background: rgb(0, 219, 255);
+				}
+			.arrow {
+				width: 13rpx;
+        height: 26rpx;
+				display: block;
+				transform: rotate(180deg);
+				margin-left: 10px;
+			}
+ 
+	 a{
+	 	text-decoration: none; 
+	 }
+	 a:active{ 
+	      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	 
+	 }

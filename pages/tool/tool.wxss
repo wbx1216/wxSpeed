@@ -1,0 +1,32 @@
+.item{
+  color:#fff; 
+  margin:20rpx; 
+  margin-top: 0;
+  padding:20rpx;   
+  border-bottom: 1px solid rgba(255,255,255,.08)
+}
+ 
+.title{
+  font-size: 30rpx;
+}
+.text{ 
+  color:rgba(255,255,255,.4);
+  font-size: 24rpx;
+  text-indent: 48rpx;
+  margin:20rpx 0rpx;
+  word-break: break-all;
+  line-height: 42rpx; 
+}
+.share{
+  width:470rpx;
+  line-height: 80rpx;
+  position: fixed;
+  bottom:20rpx;
+  left:0;
+  margin: auto;
+  right: 0;
+  background: #00dbff;
+  font-size: 30rpx;
+  color:#272a33; 
+  }
+ 

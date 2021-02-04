@@ -1,0 +1,154 @@
+<!-- <view class='nav' style='line-height:{{navH-statusBarHeight}}px;margin-top:{{statusBarHeight}}px'>
+  <view class='nav-title'>
+    测速大师
+  </view>
+  <image wx:if="{{status==2}}" src='/img/arrow.png' mode='aspectFit' class='back' bindtap='again'></image>
+</view> -->
+<view class="{{status==0?'container':''}}">
+  <block wx:if="{{status==0}}">
+    <view class="start {{animi?'top':''}}"  >
+      <button open-type="getUserInfo" class="button" bindgetuserinfo="bindGetUserInfo"></button>
+      <view class="cir_in">测速</view>
+      <view class="cir_out"></view>
+    </view>
+  </block>
+  <view wx:if="{{status!=0}}" style="height: 450rpx;margin: 40rpx auto 10px auto;"> 
+    <view class="testArea" hidden="{{status!=1}}">
+      <view  class="pan">
+        <text class="kedu k1 {{animi?'pank1':''}}">0</text>
+        <text class="kedu k2 {{animi?'pank2':''}}">5</text>
+        <text class="kedu k3 {{animi?'pank3':''}}">10</text>
+        <text class="kedu k4 {{animi?'pank4':''}}">20</text>
+        <text class="kedu k5 {{animi?'pank5':''}}">50</text>
+        <text class="kedu k6 {{animi?'pank6':''}}">100</text>
+        <text class="kedu k7 {{animi?'pank7':''}}">200</text>
+        <text class="kedu k8 {{animi?'pank8':''}}">500</text>
+        <text class="kedu k9 {{animi?'pank9':''}}">1000</text>
+       <image src="/img/pan.png" class="{{animi?'zhizhenAn':''}}"></image>
+    </view>
+      <image src="/img/zhizhen.png" class="zhizhen {{ready==1?'ready':''}}" style=" transform: rotate({{deg}}deg);"></image>
+      <view class="text">
+        <view style="font-size:50rpx;font-weight: 600;">{{speed}}.<text style="font-size:36rpx">{{speed2}}</text></view>
+        <view style="font-size:32rpx;color:#1ecceb">Mbps</view>
+      </view>
+    </view> 
+    <view class="background3" hidden="{{status!=2}}">
+      <view class="userIcon">
+        <open-data type="userAvatarUrl" style="width:100%;height:100%;"></open-data>
+      </view>
+      <view style="margin:20rpx 0px 20rpx 0px;">
+        <open-data type="userNickName" style="opacity:1;font-size:25rpx;color:#FFF;"></open-data>
+      </view>
+      <view wx:if="{{rank}}" style="font-size:28rpx;color:rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center">恭喜您获得第
+        <view style="color:#ee6b03;font-size:38rpx;margin:0px 2px">{{rank}}</view>名
+       <view bindtap="rank" style="width:50rpx;height:50rpx;display:flex;align-items:center;margin-left:15rpx;"><image  src="/img/arrow2.png" style="width:14rpx;height:28rpx;"></image></view>
+      </view>
+      <view wx:elif="{{lastRank}}" style="font-size:28rpx;color:rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center">本周当前排名：{{lastRank}}名<view bindtap="rank" style="width:50rpx;height:50rpx;display:flex;align-items:center;"><image  src="/img/arrow2.png" style="width:14rpx;height:28rpx;"></image></view>
+      </view>
+      <view wx:else style="font-size:28rpx;color:rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center">距离上榜还差一点点努力！<view bindtap="rank" style="width:50rpx;height:50rpx;display:flex;align-items:center;"><image  src="/img/arrow2.png" style="width:14rpx;height:28rpx;"></image></view>
+      </view>
+      <view class="bottom">
+        <view class="bigSize">
+          <button class="button2" open-type="share" style="background:none" >喊人来pk</button>
+        </view>
+        <view bindtap="again" class="bigSize">
+           <view class="button2"  style="background:rgba(0,219,255,0.07)">再测一次</view>
+        </view>
+       
+      </view>
+    </view> 
+  </view>
+  <block wx:if="{{status!=0}}">
+    <view class="down chart">
+      <view style="width:150rpx">
+        <view class="text">下载 / Mbps</view>
+        <view style="background: #00e7c1;width:16rpx;height:5rpx;margin-top: 40rpx;" wx:if="{{down<=0}}"></view>
+        <view style="color:#00e7c1;font-size: 40rpx;line-height: 80rpx;font-weight:700" wx:if="{{down>0}}">{{down}}</view>
+      </view>
+      <view class="table">
+        <view style="font-size:24rpx; text-align: right;margin-bottom: 10rpx;color:rgba(255,255,255,.5)" class="{{downSum>0?'':'hidden'}}">使用流量
+          <span style="color:#00e7c1;margin-left: 5px;font-weight:600">{{downSum}}M</span>
+        </view>
+        <view class="table2">
+          <ec-canvas id="mychart-dom-line" style="bottom:{{bottom}};height:{{gifHeight}}" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+        </view>
+      </view>
+    </view>
+    <view class="up chart">
+      <view style="width:150rpx">
+        <view class="text">上传 / Mbps</view>
+        <view style="background: #00d2fa;width:16rpx;height:5rpx;;margin-top: 40rpx;  " wx:if="{{up<=0}}"></view>
+        <view style="color:#00d2fa;font-size: 40rpx;line-height: 80rpx;font-weight:700" wx:if="{{up>0}}">{{up}}</view>
+      </view>
+      <view class="table">
+        <view style="font-size:24rpx; text-align: right;margin-bottom:10rpx;color:rgba(255,255,255,.5)" class="{{upSum>0?'':'hidden'}}"> 使用流量
+          <span style="color:#00d2fa;margin-left: 5px;font-weight:600">{{upSum}}M</span>
+        </view>
+        <view class="table2">
+          <ec-canvas ec="{{ ec2 }}" style="bottom:{{bottom}};height:{{gifHeight}}"></ec-canvas>
+        </view>
+      </view>
+    </view>
+
+    <view class="midMessage">
+      <view class="item">
+        <view class="label">PING/ms</view>
+        <view class="num">
+          <span wx:if="{{ping==0}}"></span>
+          <view wx:else class="span">{{ping}}</view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="label">抖动/ms</view>
+        <view class="num">
+          <span wx:if="{{doudong==0}}"></span>
+          <view wx:else class="span">{{doudong}}</view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="label">丢包/%</view>
+        <view class="num">
+          <span wx:if="{{lost==0}}"></span>
+          <view wx:else class="span">{{lost}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{status!=2}}">
+    <view class="tool    {{animi?'bottom':''}}">
+      <view class="item">
+        <image src="/img/location.png" ></image>
+        <view class="text">
+          <view>{{ip}}</view>
+          <view style="font-size:13px">{{operator}}</view>
+        </view>
+      </view>
+      <view style="flex: 1;position: relative;margin:0px 5px">
+        <view class="loading {{downStatus?'down':''}} {{upStatus?'up':''}}"></view>
+      </view>
+      <view class="item">
+        <image src="/img/jiedian.png" ></image>
+        <view style="color:#ffffff;font-size:26rpx;margin-left: 20rpx;">云测节点</view>
+      </view>
+    </view>
+    <view class="toast" wx:if="{{toast}}">
+      <view style="display:flex;align-items:center;justify-content:center;margin-bottom:30rpx;">
+        <image src="/img/error.png" style="width:30rpx;margin-right:10rpx;height:30rpx;"></image>
+        <text>网络不稳定</text>
+      </view>
+      <view style="opacity:.8;font-size:24rpx;text-align:center;padding:0px 5%;">测试无法完成，请检查您的网络连接，然后重试。</view>
+    </view>
+  </block>
+</view>
+<block wx:if="{{status==2}}">
+  <view class="background2">
+    <view style="display: flex;">您的网速相当于<text style="margin:0 2rpx;font-size:32rpx;color: #00d2fa;font-weight:bold">{{level}}</text>宽带</view>
+    <view class="detail" bindtap="detail">
+      <view>点击查看详情</view>
+      <image src="/img/arrow2.png" style="width:6px;height:12px;margin-left:10rpx;display:block" ></image>
+    </view>
+  </view>
+</block>
+<block wx:if="{{tips&&status==2}}">
+  <view  bindtap="closeTips" class="tips" style="top:{{navH+6}}px;right:10px">喜欢我？点这“添加到我的小程序”<image src="/img/close.png" ></image><view class="triangle"></view></view>
+</block>

@@ -1,0 +1,34 @@
+<view class="block">
+  <view style="flex:1;display:flex; align-items: center;">
+    <view style="border-radius:50%;overflow:hidden;width:90rpx;height:90rpx;">
+      <open-data type="userAvatarUrl"  ></open-data>  
+    </view>
+    <open-data type="userNickName" style="margin:0px 20px 0px 15px;"></open-data>
+  </view>
+  <view  class="rank" wx:if="{{index==0}}">您还没有上榜哦</view>
+  <view  class="rank" wx:else>恭喜您获得第<span style="color:#ee6b03;font-size:34rpx;margin:0 5rpx;font-weight:bold">{{index}}</span>名</view>
+</view>
+<view style="color:#FFF;opacity:0.5;width:650rpx;margin:0px auto;font-size:20rpx;line-height:20px;">*每周一凌晨重新计算排名，前100名实时更新</view>
+ <view class="label">
+   <view style="width:20%">排名</view>
+   <view style="width:40%;text-indent:80rpx;text-align:left;">用户</view>
+   <view style="width:15%;display:flex;align-items:center;"><image src="/img/Mbps.png" style="width:30rpx;height:30rpx;margin-right:5px"></image> Mbps</view>
+   <view style="width:25%" >归属地</view>
+ </view>
+<scroll-view style="height:{{height}}px" scroll-y="true">
+
+ <view class="list">
+  <view wx:for="{{list}}" class="item">
+    <view style="width:20%;">
+      <image src="/img/rank{{index}}.png" wx:if="{{index<3}}" class="icon"  ></image>
+      <view wx:else style="text-align:center;color:#ee6b03">{{index+1}}</view>
+    </view>
+    <view class="user">
+      <image src="{{item.icon}}" class="img"></image>
+      <view   class="name">{{item.nickname}}</view>
+    </view>
+    <view style="width:15%;color:#00dbff;font-size:30rpx;text-align:center;">{{item.speed}}</view>
+    <view style="width:25%; text-align:center" class="address">{{item.location}}</view>
+  </view>
+</view> 
+</scroll-view>

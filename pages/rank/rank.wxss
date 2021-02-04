@@ -1,0 +1,92 @@
+page{
+  height: 100%;
+}
+.block {
+  width: 700rpx;
+  margin: 12px 50rpx; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 28rpx; 
+  border-radius: 5px; 
+  line-height: 46rpx;
+}
+.rank{
+  color:rgba(255,255,255,.8);
+  background: rgba(255,255,255,.15);
+  border-top-left-radius:20px;
+  border-bottom-left-radius: 20px;
+  padding:0px 40rpx;
+}
+.label{
+  display: flex;
+  line-height: 35px;
+  color:rgba(255,255,255,.5);
+  background: rgba(255,255,255,.1);
+  text-align: center;
+  margin-top: 5px;
+  font-size: 24rpx;
+}
+
+.list {  
+  width: 100%;
+  color: #fff;  
+}
+
+.icon {
+  width: 50rpx; 
+  height: 50rpx;
+  display: block;
+  margin:0 auto;
+}
+
+.item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  height: 90rpx;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  line-height: 90rpx;
+  font-size: 26rpx;
+}
+.item:last-child{
+  border-bottom: none
+}
+ 
+
+.user {
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
+
+.user .img {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.user .name {
+  margin-left: 20rpx;
+  text-align: left;
+  flex:1;
+  overflow: hidden;
+  height: 60rpx;
+  line-height: 60rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.address{
+  margin-left: 20rpx;
+  text-align: left;
+  flex: 1;
+  overflow: hidden;
+  height: 60rpx;
+  line-height: 60rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+}

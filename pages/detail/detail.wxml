@@ -1,0 +1,100 @@
+	<view style="width: 92%;margin:0 auto;"> 
+		<view style="display: flex;justify-content: space-between;font-size: 29rpx;margin:30rpx 0px;">
+			<view>{{data.date}} {{data.time}}</view>
+			<view>使用流量：{{data.downSum}}M</view>
+		</view>
+		<view class="location">
+			<view class="item" style="display: flex;align-items: center;">
+				<image src="/img/location2.png"></image> 
+				<view style="margin-left: 5px;">
+					<view style="font-size: 24rpx;margin-left: 10rpx;" wx:if="{{data.jd>0&&data.wd>0}}"><span style="margin-right: 10px;">经度：{{data.jd}}</span>纬度：{{data.wd}}</view>
+					<view style="font-size: 24rpx;margin-left: 10rpx;display:flex;align-items:center;" wx:else="{{data.jd>0&&data.wd>0}}"><view style="margin-right: 10px;">经纬度 : 暂无授权</view><view style="color:#01ccff;border-radius:5px;border:1px solid #01ccff;padding:0px 10rpx;" bindtap="setting">重新授权</view></view>
+					<view style="font-size: 24rpx;margin-left: 10rpx;">IP:{{data.ip}}</view>
+				</view>
+
+			</view> 
+			<view class="item" wx:if="{{data.location}}">
+					<image src="/img/dingwei.png"></image>
+				<view style="font-size: 24rpx;margin-left: 10rpx;">{{data.location}}</view>
+			</view>
+		</view>
+		<view class="block">
+			<view class="item">
+				<view>
+					<view style="color:#69e3c2;font-size: 48rpx;font-weight: bold;">{{data.down}}</view>
+					<view style="font-size: 20rpx;opacity: .3;">下载/Mbps</view>
+				</view>
+				<view>
+					<view style="color:#00dbff;font-size: 48rpx;font-weight: bold;">{{data.up}}</view>
+					<view style="font-size: 20rpx;opacity: .3;">上传/Mbps</view>
+				</view>
+			</view>
+			<view class="item" style="width:80%;margin-top:50rpx;">
+				<view>
+					<view style="font-size: 36rpx;font-weight: bold;">{{data.ping}}</view>
+					<view style="font-size: 20rpx;opacity: .3;">PING/ms</view>
+				</view>
+				<view>
+					<view style="font-size: 36rpx;font-weight: bold;">{{data.doudong}}</view>
+					<view style="font-size: 20rpx;opacity: .3;">抖动/ms</view>
+				</view>
+				<view>
+					<view style="font-size: 36rpx;font-weight: bold;">{{data.lost}}</view>
+					<view style="font-size: 20rpx;opacity: .3;">丢包/%</view>
+				</view>
+				<view class="line"></view>
+				<view class="line" style="left: 70%;"></view>
+			</view>
+		</view>
+		<view style="font-size: 31rpx;opacity: .5;text-align: center;">您的网速相当于{{level}}宽带</view> 
+		<view class="list">
+			<view class="item">
+				<view style="display: flex;align-items: center;width:180rpx;">
+					<image src="/img/cesu_icon0.png" class="icon" mode="widthFix"></image> 
+					<view>大型游戏</view>
+				</view>
+				<view class="loading">
+					<view class="inLoading" style="width:{{downLoading}}%"></view>
+				</view>
+				<view style="display: flex;align-items: center;">
+					<view>{{game}}</view> 
+				</view>
+			</view>
+			<view class="item">
+				<view style="display: flex;align-items: center;width:180rpx;">
+					<image src="/img/cesu_icon1.png" class="icon" mode="widthFix"></image> 
+					<view>在线直播</view>
+				</view>
+				<view class="loading">
+					<view class="inLoading" style="width:{{upLoading}}%"></view>
+				</view>
+				<view style="display: flex;align-items: center;">
+					<view>{{zhibo}}</view> 
+				</view>
+			</view>
+			<view class="item">
+				<view style="display: flex;align-items: center;width:180rpx;">
+					<image src="/img/cesu_icon6.png" class="icon" mode="widthFix"></image> 
+					<view>高清视频</view>
+				</view>
+				<view class="loading">
+					<view class="inLoading" style="width:{{downLoading}}%"></view>
+				</view>
+				<view style="display: flex;align-items: center;">
+					<view>{{video}}</view> 
+				</view>
+			</view>
+			<view class="item">
+				<view style="display: flex;align-items: center;width:180rpx;">
+					<image src="/img/cesu_icon7.png" class="icon" mode="widthFix"></image> 
+					<view>抢红包</view>
+				</view> 
+				<view class="loading">
+						<view class="inLoading" style="width:{{upLoading}}%"></view>
+				</view> 
+				<view style="display: flex;align-items: center;">
+					<view>{{hongbao}}</view> 
+				</view>
+			</view>
+		</view>
+	</view>
